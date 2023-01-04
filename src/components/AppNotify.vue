@@ -1,45 +1,47 @@
 <template >
     <div class="alert " :class="typeAlert" role="alert" v-if="openAlert">
         {{ alertMessage }}
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" @click="hideAlert()"></button>
-  <button v-show="!openAlert">Show</button>
-</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+            @click="hideAlert()"></button>
+        <button v-show="!openAlert">Show</button>
+    </div>
 </template>
 <script>
 export default {
-    props:['alertMessage','tipe','posisi'],
-    data(){
-        return{
-            openAlert:true
+    props: ['alertMessage', 'tipe', 'posisi'],
+    data() {
+        return {
+            openAlert: true
         }
     },
-    mounted(){
-        setTimeout(()=>{
-            this.openAlert=false
-        },3000)
+    mounted() {
+        setTimeout(() => {
+            this.openAlert = false
+        }, 3000)
     },
-    methods:{
-        hideAlert(){
-            this.openAlert=false
+    methods: {
+        hideAlert() {
+            this.openAlert = false
         }
     },
-    computed:{
-        typeAlert(){
-            return [`alert-${this.tipe}`,`alert-${this.posisi}`]
+    computed: {
+        typeAlert() {
+            return [`alert-${this.tipe}`, `alert-${this.posisi}`]
         }
     }
 
 };
 </script>
 <style >
-.alert-bl{
+.alert-bl {
     position: fixed;
     bottom: 10px;
-    left:30px;
+    left: 30px;
 }
-.alert-tl{
+
+.alert-tl {
     position: fixed;
-    top:10px;
-    left:30px;
+    top: 10px;
+    left: 30px;
 }
 </style>
